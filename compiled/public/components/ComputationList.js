@@ -8,58 +8,31 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = function (_React$Component) {
-  _inherits(App, _React$Component);
+var ComputationList = function (_React$Component) {
+  _inherits(ComputationList, _React$Component);
 
-  function App() {
-    _classCallCheck(this, App);
+  function ComputationList() {
+    _classCallCheck(this, ComputationList);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(ComputationList).call(this));
   }
 
-  _createClass(App, [{
+  _createClass(ComputationList, [{
     key: "render",
     value: function render() {
       return React.createElement(
         "div",
-        { className: "container" },
+        null,
         React.createElement(
-          "div",
-          { className: "row" },
-          React.createElement(
-            "div",
-            { className: "col-md-offset-3 col-md-4" },
-            React.createElement(
-              "h1",
-              null,
-              "CollabCompingFTW"
-            )
-          )
-        ),
-        React.createElement(
-          "div",
-          { className: "row" },
-          React.createElement(
-            "div",
-            { className: "col-md-4" },
-            React.createElement(ComputationList, null)
-          ),
-          React.createElement(
-            "div",
-            { className: "col-md-4" },
-            React.createElement(PeerList, null)
-          ),
-          React.createElement(
-            "div",
-            { className: "col-md-4" },
-            React.createElement(RequestList, null)
-          )
+          "h3",
+          null,
+          "Computation List"
         )
       );
     }
   }]);
 
-  return App;
+  return ComputationList;
 }(React.Component);
 
-window.App = App;
+window.ComputationList = ComputationList;
