@@ -23,16 +23,16 @@ Once the project moves into development, the press release can be used as a touc
   This product is ideal for hobbyists who want to (1) perform intensive computational tasks and (2) meet and befriend peers at the same time!
 
 ## Summary ##
-  A registered user can "befriend" other users and make "computation requests" of their friends. An example of a "computation request" might be something to the effect of "Hey [such-and-such-friend], I'm trying to run my n-queens solver for n=100. Would you be willing to lend me some of your computing resources, say to calculate all the the possible board positions where there's a queen in the upper-left-hand corner of the board?"
+  A registered user can "befriend" other users and make "computation requests" of their friends. An example of a "computation request" might be something to the effect of "Hey [such-and-such-friend], I'm trying to run my n-queens solver for n=100. Would you be willing to lend me some of your computing resources, say to calculate all the possible board positions where there's a queen in the upper-left-hand corner of the board?"
 
 ## Problem ##
   A hobbyist might not know the finer points of how to set up a distributed computation. (For example, the hobbyist could be a mathematician with no formal exposure to computer science beyond basic programming.)
 
 ## Solution ##
-  Our app's server handles the setup of the computation - all your friends need to do is accept the request!
+  Our app's server handles the setup of the computation - all your friends need to do is accept the computation request!
 
 ## Quote from You ##
-  "If everybody who reads were to sign up, we'd all be able to get together and break the world record for n-queens!" - Jamie Long
+  "If everybody who reads this were to sign up, we'd all be able to get together and break the world record for n-queens!" - Jamie Long
 
 ## How to Get Started ##
   Signup is easily: just provide your username, password, and another other bio details you see fit!
