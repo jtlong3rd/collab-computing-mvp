@@ -4,16 +4,24 @@
   "main": "index.js",
   "description": "mvp project",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "babel . --watch --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled"
   },
   "engines": {
     "node": "6.2.2"
   },
   "dependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
     "bluebird": "1.0.8",
     "express": "~3.4.8",
     "express-partials": "^0.3.0",
     "mongoose": "~3.8.8",
-    "partials": "^0.1.0"
+    "partials": "^0.1.0",
+    "bootstrap": "^4.0.0-alpha.2",
+    "jquery": "^2.2.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
   }
 }
