@@ -25,6 +25,16 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
+    key: 'addPeer',
+    value: function addPeer(name) {
+      this.setState({ requests: this.state.requests.concat(name) });
+    }
+  }, {
+    key: 'addComputation',
+    value: function addComputation(descrption, number) {
+      this.setState({ computations: this.state.computations.concat(description + ' ' + number) });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(

@@ -9,6 +9,14 @@ class App extends React.Component {
     };
   }
 
+  addPeer(name) {
+    this.setState({requests: this.state.requests.concat(name)});
+  }
+
+  addComputation(descrption, number) {
+    this.setState({computations : this.state.computations.concat(`${description} ${number}`)});
+  }
+
   render() {
     return (
       <div>
