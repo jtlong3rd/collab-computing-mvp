@@ -10,7 +10,14 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({requests: this.state.requests.concat(obtainRequests(5, this.state.peers))});
+    this.setState({
+      requests: this.state.requests.concat(obtainRequests(5, this.state.peers)),
+      interval: setInterval(() => this.setState({ requests: this.state.requests.concat(obtainRequests(1, this.state.peers)) }), 10000)
+    });
+  }
+
+  componentWillUnmount() {
+    closeInterval(this.state.interval);
   }
 
   addRequest(request) {

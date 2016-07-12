@@ -29,7 +29,19 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      this.setState({ requests: this.state.requests.concat(obtainRequests(5, this.state.peers)) });
+      var _this2 = this;
+
+      this.setState({
+        requests: this.state.requests.concat(obtainRequests(5, this.state.peers)),
+        interval: setInterval(function () {
+          return _this2.setState({ requests: _this2.state.requests.concat(obtainRequests(1, _this2.state.peers)) });
+        }, 10000)
+      });
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      closeInterval(this.state.interval);
     }
   }, {
     key: 'addRequest',
