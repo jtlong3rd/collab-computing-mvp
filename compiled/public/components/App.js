@@ -21,7 +21,7 @@ var App = function (_React$Component) {
     _this.state = {
       computations: [],
       peers: ['Alex', 'G-Man'],
-      requests: ['Befriend Chell', 'Befriend Wheatley', 'Befriend Freeman']
+      requests: ['Chell: Buddies?', 'Wheatley: Buddies?', 'Freeman: Buddies?']
     };
     return _this;
   }
@@ -32,10 +32,9 @@ var App = function (_React$Component) {
       var _this2 = this;
 
       this.setState({
-        requests: this.state.requests.concat(obtainRequests(5, this.state.peers)),
         interval: setInterval(function () {
           return _this2.setState({ requests: _this2.state.requests.concat(obtainRequests(1, _this2.state.peers)) });
-        }, 10000)
+        }, 5000)
       });
     }
   }, {
@@ -46,18 +45,24 @@ var App = function (_React$Component) {
   }, {
     key: 'addRequest',
     value: function addRequest(request) {
-      var _request$split = request.split(/[ ()]/);
+      var _request$split = request.split(/: /);
 
       var _request$split2 = _slicedToArray(_request$split, 2);
 
-      var action = _request$split2[0];
-      var parameter = _request$split2[1];
+      var peer = _request$split2[0];
+      var query = _request$split2[1];
 
 
-      if (action === 'Befriend') {
-        this.setState({ peers: _.uniq(this.state.peers.concat(parameter)) });
+      if (query === 'Buddies?') {
+        this.setState({ peers: _.uniq(this.state.peers.concat(peer)) });
       } else {
-        var peer = request.split(/from /)[1].slice(0, -1);
+        var _query$split = query.split(/[()]/);
+
+        var _query$split2 = _slicedToArray(_query$split, 2);
+
+        var action = _query$split2[0];
+        var parameter = _query$split2[1];
+
 
         this.setState({ computations: this.state.computations.concat(action + '(' + parameter + ') = ' + this.functionLookup(action)(Number(parameter)) + ' (for ' + peer + ')') });
       }
@@ -156,7 +161,7 @@ var obtainRequests = function obtainRequests(n, peers) {
     var randomFunction = functions[Math.floor(Math.random() * functions.length)];
     var randomParameter = parameters[Math.floor(Math.random() * parameters.length)];
     var randomPeer = peers[Math.floor(Math.random() * peers.length)];
-    return requests.concat(randomFunction + '(' + randomParameter + ') (from ' + randomPeer + ')');
+    return requests.concat(randomPeer + ': ' + randomFunction + '(' + randomParameter + ')');
   }, []);
 };
 

@@ -5,14 +5,13 @@ class App extends React.Component {
     this.state = {
       computations: [],
       peers: ['Alex', 'G-Man'],
-      requests: ['Befriend Chell', 'Befriend Wheatley', 'Befriend Freeman'],
+      requests: ['Chell: Buddies?', 'Wheatley: Buddies?', 'Freeman: Buddies?'],
     };
   }
 
   componentWillMount() {
     this.setState({
-      requests: this.state.requests.concat(obtainRequests(5, this.state.peers)),
-      interval: setInterval(() => this.setState({ requests: this.state.requests.concat(obtainRequests(1, this.state.peers)) }), 10000)
+      interval: setInterval(() => this.setState({ requests: this.state.requests.concat(obtainRequests(1, this.state.peers)) }), 5000)
     });
   }
 
@@ -21,12 +20,12 @@ class App extends React.Component {
   }
 
   addRequest(request) {
-    var [action, parameter] = request.split(/[ ()]/);
+    var [peer, query] = request.split(/: /);
 
-    if (action === 'Befriend') {
-      this.setState({peers : _.uniq(this.state.peers.concat(parameter))});
+    if (query === 'Buddies?') {
+      this.setState({peers : _.uniq(this.state.peers.concat(peer))});
     } else {
-      var peer = request.split(/from /)[1].slice(0, -1);
+      var [action, parameter] = query.split(/[()]/);
 
       this.setState({computations : this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))} (for ${peer})`)});
     }
@@ -99,7 +98,7 @@ var obtainRequests = function(n, peers) {
     var randomFunction = functions[ Math.floor(Math.random() * functions.length) ];
     var randomParameter = parameters[ Math.floor(Math.random() * parameters.length) ];
     var randomPeer = peers[ Math.floor(Math.random() * peers.length) ];
-    return requests.concat(`${randomFunction}(${randomParameter}) (from ${randomPeer})`);
+    return requests.concat(`${randomPeer}: ${randomFunction}(${randomParameter})`);
   }, []);
 };
 
