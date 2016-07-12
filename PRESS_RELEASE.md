@@ -24,7 +24,7 @@ Once the project moves into development, the press release can be used as a touc
   > A registered user can "befriend" other users and make "computation requests" of their friends. An example of a "computation request" might be something to the effect of "Hey [such-and-such-friend], I'm trying to run my n-queens solver for n=100. Would you be willing to lend me some of your computing resources, say to calculate all the possible board positions where there's a queen in the upper-left-hand corner of the board?"
 
 ## Problem ##
-  > A hobbyist might not know the finer points of how to set up a distributed computation. (For example, the hobbyist could be a mathematician with no formal exposure to computer science beyond basic programming.)
+  > A hobbyist might not know the finer points of how to set up a distributed computation by themselves. (For example, the hobbyist could be a mathematician with no formal exposure to computer science beyond basic programming.)
 
 ## Solution ##
   > Our app's server handles the setup of the computation - all your friends need to do is accept the computation request!
