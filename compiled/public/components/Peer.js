@@ -27,7 +27,9 @@ var Peer = function (_React$Component) {
         ' ',
         React.createElement(
           'button',
-          { type: 'button', className: 'btn btn-primary btn-sm' },
+          { type: 'button', className: 'btn btn-primary btn-sm', onClick: function onClick() {
+              return alert('You\'re on your own, bro!');
+            } },
           'Ask For Help'
         )
       );
