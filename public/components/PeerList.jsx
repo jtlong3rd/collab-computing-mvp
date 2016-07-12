@@ -7,6 +7,9 @@ class PeerList extends React.Component {
     return (
       <div>
         <h3>Peer List</h3>
+        <ul>
+          <li>Lindsey</li>
+        </ul>
       </div>
     );
   }

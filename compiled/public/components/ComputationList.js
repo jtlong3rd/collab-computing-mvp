@@ -27,6 +27,15 @@ var ComputationList = function (_React$Component) {
           "h3",
           null,
           "Computation List"
+        ),
+        React.createElement(
+          "ul",
+          null,
+          React.createElement(
+            "li",
+            null,
+            "Solved ALL THE N-QUEENS"
+          )
         )
       );
     }

@@ -7,6 +7,9 @@ class ComputationList extends React.Component {
     return (
       <div>
         <h3>Computation List</h3>
+        <ul>
+          <li>Solved ALL THE N-QUEENS</li>
+        </ul>
       </div>
     );
   }

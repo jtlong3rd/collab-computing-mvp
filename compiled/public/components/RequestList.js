@@ -27,6 +27,15 @@ var RequestList = function (_React$Component) {
           "h3",
           null,
           "Request List"
+        ),
+        React.createElement(
+          "ul",
+          null,
+          React.createElement(
+            "li",
+            null,
+            "I can haz n-queens for n=100?"
+          )
         )
       );
     }

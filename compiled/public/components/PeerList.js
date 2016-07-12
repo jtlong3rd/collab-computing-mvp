@@ -27,6 +27,15 @@ var PeerList = function (_React$Component) {
           "h3",
           null,
           "Peer List"
+        ),
+        React.createElement(
+          "ul",
+          null,
+          React.createElement(
+            "li",
+            null,
+            "Lindsey"
+          )
         )
       );
     }
