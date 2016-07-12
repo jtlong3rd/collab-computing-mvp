@@ -29,7 +29,9 @@ var Request = function (_React$Component) {
         ' ',
         React.createElement(
           'button',
-          { type: 'button', className: 'btn btn-success btn-sm' },
+          { type: 'button', className: 'btn btn-success btn-sm', onClick: function onClick() {
+              return _this2.props.addRequest(_this2.props.name);
+            } },
           'Accept'
         ),
         ' ',

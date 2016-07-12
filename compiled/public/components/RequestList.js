@@ -31,7 +31,7 @@ var RequestList = function (_React$Component) {
           "Request List"
         ),
         this.props.requests.map(function (request, index) {
-          return React.createElement(Request, { name: request, key: index, removeRequest: _this2.props.removeRequest });
+          return React.createElement(Request, { name: request, key: index, addRequest: _this2.props.addRequest, removeRequest: _this2.props.removeRequest });
         })
       );
     }

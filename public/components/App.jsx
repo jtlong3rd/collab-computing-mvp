@@ -9,14 +9,16 @@ class App extends React.Component {
     };
   }
 
-  acceptRequest(requestText) {
-    [action, parameter] = requestText.split(' ');
+  addRequest(request) {
+    var [action, parameter] = request.split(' ');
 
     if (action === 'Befriend') {
       this.setState({peers : _.uniq(this.state.peers.concat(parameter))});
     } else {
       this.setState({computations : this.state.computations.concat(`${action} ${parameter}`)});
     }
+
+    this.removeRequest(request);
   }
 
   removeRequest(request) {
@@ -39,7 +41,7 @@ class App extends React.Component {
               <PeerList peers={this.state.peers} />
             </div>
             <div className='col-md-offset-1 col-md-3'>
-              <RequestList requests={this.state.requests} removeRequest={this.removeRequest.bind(this)} />
+              <RequestList requests={this.state.requests} addRequest={this.addRequest.bind(this)} removeRequest={this.removeRequest.bind(this)} />
             </div>
           </div>
         </div>

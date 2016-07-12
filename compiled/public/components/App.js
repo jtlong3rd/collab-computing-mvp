@@ -27,14 +27,14 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: 'acceptRequest',
-    value: function acceptRequest(requestText) {
-      var _requestText$split = requestText.split(' ');
+    key: 'addRequest',
+    value: function addRequest(request) {
+      var _request$split = request.split(' ');
 
-      var _requestText$split2 = _slicedToArray(_requestText$split, 2);
+      var _request$split2 = _slicedToArray(_request$split, 2);
 
-      action = _requestText$split2[0];
-      parameter = _requestText$split2[1];
+      var action = _request$split2[0];
+      var parameter = _request$split2[1];
 
 
       if (action === 'Befriend') {
@@ -42,6 +42,8 @@ var App = function (_React$Component) {
       } else {
         this.setState({ computations: this.state.computations.concat(action + ' ' + parameter) });
       }
+
+      this.removeRequest(request);
     }
   }, {
     key: 'removeRequest',
@@ -82,7 +84,7 @@ var App = function (_React$Component) {
             React.createElement(
               'div',
               { className: 'col-md-offset-1 col-md-3' },
-              React.createElement(RequestList, { requests: this.state.requests, removeRequest: this.removeRequest.bind(this) })
+              React.createElement(RequestList, { requests: this.state.requests, addRequest: this.addRequest.bind(this), removeRequest: this.removeRequest.bind(this) })
             )
           )
         )
