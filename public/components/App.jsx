@@ -5,12 +5,12 @@ class App extends React.Component {
     this.state = {
       computations: [],
       peers: [],
-      requests: ['Befriend Chell', 'Befriend Wheatley', 'fib 6', 'nRooks 5'],
+      requests: ['Befriend Chell', 'Befriend Wheatley', 'fib(6)', 'nRooks(5)'],
     };
   }
 
   addRequest(request) {
-    var [action, parameter] = request.split(' ');
+    var [action, parameter] = request.split(/[ ()]/);
 
     if (action === 'Befriend') {
       this.setState({peers : _.uniq(this.state.peers.concat(parameter))});

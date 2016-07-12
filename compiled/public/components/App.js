@@ -21,7 +21,7 @@ var App = function (_React$Component) {
     _this.state = {
       computations: [],
       peers: [],
-      requests: ['Befriend Chell', 'Befriend Wheatley', 'fib 6', 'nRooks 5']
+      requests: ['Befriend Chell', 'Befriend Wheatley', 'fib(6)', 'nRooks(5)']
     };
     return _this;
   }
@@ -29,7 +29,7 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'addRequest',
     value: function addRequest(request) {
-      var _request$split = request.split(' ');
+      var _request$split = request.split(/[ ()]/);
 
       var _request$split2 = _slicedToArray(_request$split, 2);
 
