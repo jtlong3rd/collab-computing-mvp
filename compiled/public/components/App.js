@@ -77,7 +77,12 @@ var App = function (_React$Component) {
   }, {
     key: 'removePeer',
     value: function removePeer(name) {
-      this.setState({ peers: _.without(this.state.peers, name) });
+      this.setState({
+        peers: _.without(this.state.peers, name),
+        requests: _.reject(this.state.requests, function (request) {
+          return request.split(/: /)[0] === name;
+        })
+      });
     }
   }, {
     key: 'functionLookup',

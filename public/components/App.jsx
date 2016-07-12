@@ -23,11 +23,11 @@ class App extends React.Component {
     var [peer, query] = request.split(/: /);
 
     if (query === 'Buddies?') {
-      this.setState({ peers : _.uniq(this.state.peers.concat(peer)) });
+      this.setState({ peers: _.uniq(this.state.peers.concat(peer)) });
     } else {
       var [action, parameter] = query.split(/[()]/);
 
-      this.setState({ computations : _.uniq(this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))} (for ${peer})`)) });
+      this.setState({ computations: _.uniq(this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))} (for ${peer})`)) });
     }
 
     this.removeRequest(request);
@@ -38,7 +38,10 @@ class App extends React.Component {
   }
 
   removePeer(name) {
-    this.setState({ peers : _.without(this.state.peers, name) });
+    this.setState({
+      peers: _.without(this.state.peers, name),
+      requests: _.reject(this.state.requests, (request) => request.split(/: /)[0] === name)
+    });
   }
 
   functionLookup(name) {
