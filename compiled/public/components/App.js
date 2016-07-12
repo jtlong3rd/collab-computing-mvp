@@ -19,9 +19,9 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
 
     _this.state = {
-      computations: ['Solve ALL THE N-QUEENS', 'Annoy fun-fun-function'],
-      peers: ['Chell', 'Wheatley'],
-      requests: ['Befriend Lindsey', 'fib 232']
+      computations: [],
+      peers: [],
+      requests: ['Befriend Chell', 'Befriend Wheatley', 'fib 6', 'nRooks 5']
     };
     return _this;
   }
@@ -40,7 +40,7 @@ var App = function (_React$Component) {
       if (action === 'Befriend') {
         this.setState({ peers: _.uniq(this.state.peers.concat(parameter)) });
       } else {
-        this.setState({ computations: this.state.computations.concat(action + ' ' + parameter) });
+        this.setState({ computations: this.state.computations.concat(action + '(' + parameter + ') = ' + this.functionLookup(action)(Number(parameter))) });
       }
 
       this.removeRequest(request);
@@ -49,6 +49,15 @@ var App = function (_React$Component) {
     key: 'removeRequest',
     value: function removeRequest(request) {
       this.setState({ requests: _.without(this.state.requests, request) });
+    }
+  }, {
+    key: 'functionLookup',
+    value: function functionLookup(name) {
+      if (name === 'fib') {
+        return fib;
+      } else {
+        return nRooks;
+      }
     }
   }, {
     key: 'render',
@@ -94,5 +103,30 @@ var App = function (_React$Component) {
 
   return App;
 }(React.Component);
+
+var fib = function fib(n) {
+  var secLast = arguments.length <= 1 || arguments[1] === undefined ? 1 : arguments[1];
+  var last = arguments.length <= 2 || arguments[2] === undefined ? 1 : arguments[2];
+
+  if (n === 1) {
+    return secLast;
+  }
+
+  if (n === 2) {
+    return last;
+  }
+
+  return fib(n - 1, last, secLast + last);
+};
+
+var nRooks = function nRooks(n) {
+  var prev = arguments.length <= 1 || arguments[1] === undefined ? 1 : arguments[1];
+
+  if (n === 0) {
+    return prev;
+  }
+
+  return nRooks(n - 1, n * prev);
+};
 
 window.App = App;

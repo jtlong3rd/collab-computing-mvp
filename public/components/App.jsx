@@ -3,9 +3,9 @@ class App extends React.Component {
     super();
 
     this.state = {
-      computations: ['Solve ALL THE N-QUEENS', 'Annoy fun-fun-function'],
-      peers: ['Chell', 'Wheatley'],
-      requests: ['Befriend Lindsey', 'fib 232']
+      computations: [],
+      peers: [],
+      requests: ['Befriend Chell', 'Befriend Wheatley', 'fib 6', 'nRooks 5'],
     };
   }
 
@@ -15,7 +15,7 @@ class App extends React.Component {
     if (action === 'Befriend') {
       this.setState({peers : _.uniq(this.state.peers.concat(parameter))});
     } else {
-      this.setState({computations : this.state.computations.concat(`${action} ${parameter}`)});
+      this.setState({computations : this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))}`)});
     }
 
     this.removeRequest(request);
@@ -23,6 +23,14 @@ class App extends React.Component {
 
   removeRequest(request) {
     this.setState({requests: _.without(this.state.requests, request)});
+  }
+
+  functionLookup(name) {
+    if (name === 'fib') {
+      return fib;
+    } else {
+      return nRooks;
+    }
   }
 
   render() {
@@ -49,5 +57,25 @@ class App extends React.Component {
     );
   }
 }
+
+var fib = function(n, secLast=1, last=1) {
+  if (n === 1) {
+    return secLast;
+  }
+
+  if (n === 2) {
+    return last;
+  }
+
+  return fib(n - 1, last, secLast + last);
+};
+
+var nRooks = function(n, prev=1) {
+  if (n === 0) {
+    return prev;
+  }
+
+  return nRooks(n - 1 , n * prev);
+};
 
 window.App = App;
