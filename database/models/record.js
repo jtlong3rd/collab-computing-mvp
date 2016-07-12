@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 
 var recordSchema = mongoose.Schema({
-  type: { type: String, required: true, index: { unique : true } },
-  description: String,
-  content: String,
+  type: { type: String, required: true },
+  description: { type: String, required: true },
+  content: { type: String, required: true },
 }, { timestamps:
   {
     createdAt: 'created_at',
