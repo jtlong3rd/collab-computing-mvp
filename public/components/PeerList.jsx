@@ -8,7 +8,7 @@ class PeerList extends React.Component {
       <div>
         <h3>Peer List</h3>
         <ul>
-          <li>Lindsey</li>
+          <Peer name='Lindsey' />
         </ul>
       </div>
     );

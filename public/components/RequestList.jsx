@@ -8,7 +8,7 @@ class RequestList extends React.Component {
       <div>
         <h3>Request List</h3>
         <ul>
-          <li>I can haz n-queens for n=100?</li>
+          <Request name='I can haz n-queens for n=100?' />
         </ul>
       </div>
     );

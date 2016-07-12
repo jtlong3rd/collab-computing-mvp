@@ -8,7 +8,7 @@ class ComputationList extends React.Component {
       <div>
         <h3>Computation List</h3>
         <ul>
-          <li>Solved ALL THE N-QUEENS</li>
+          <Computation name='Solve ALL THE N-QUEENS' />
         </ul>
       </div>
     );

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -18,41 +18,49 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
-        { className: "container" },
+        'div',
+        null,
         React.createElement(
-          "div",
-          { className: "row" },
+          'div',
+          { className: 'jumbotron' },
           React.createElement(
-            "div",
-            { className: "col-md-offset-3 col-md-4" },
+            'div',
+            { className: 'row' },
             React.createElement(
-              "h1",
-              null,
-              "CollabCompingFTW"
+              'div',
+              { className: 'col-md-offset-1 col-md-6' },
+              React.createElement(
+                'h1',
+                null,
+                'CollabCompingFTW'
+              )
             )
           )
         ),
         React.createElement(
-          "div",
-          { className: "row" },
+          'div',
+          { className: 'jumbotron' },
           React.createElement(
-            "div",
-            { className: "col-md-4" },
-            React.createElement(ComputationList, null)
-          ),
-          React.createElement(
-            "div",
-            { className: "col-md-4" },
-            React.createElement(PeerList, null)
-          ),
-          React.createElement(
-            "div",
-            { className: "col-md-4" },
-            React.createElement(RequestList, null)
+            'div',
+            { className: 'row' },
+            React.createElement(
+              'div',
+              { className: 'col-md-offset-1 col-md-3' },
+              React.createElement(ComputationList, null)
+            ),
+            React.createElement(
+              'div',
+              { className: 'col-md-offset-1 col-md-3' },
+              React.createElement(PeerList, null)
+            ),
+            React.createElement(
+              'div',
+              { className: 'col-md-offset-1 col-md-3' },
+              React.createElement(RequestList, null)
+            )
           )
         )
       );

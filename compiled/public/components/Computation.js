@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -8,36 +8,27 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ComputationList = function (_React$Component) {
-  _inherits(ComputationList, _React$Component);
+var Computation = function (_React$Component) {
+  _inherits(Computation, _React$Component);
 
-  function ComputationList() {
-    _classCallCheck(this, ComputationList);
+  function Computation() {
+    _classCallCheck(this, Computation);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ComputationList).call(this));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Computation).call(this));
   }
 
-  _createClass(ComputationList, [{
-    key: 'render',
+  _createClass(Computation, [{
+    key: "render",
     value: function render() {
       return React.createElement(
-        'div',
+        "li",
         null,
-        React.createElement(
-          'h3',
-          null,
-          'Computation List'
-        ),
-        React.createElement(
-          'ul',
-          null,
-          React.createElement(Computation, { name: 'Solve ALL THE N-QUEENS' })
-        )
+        this.props.name
       );
     }
   }]);
 
-  return ComputationList;
+  return Computation;
 }(React.Component);
 
-window.ComputationList = ComputationList;
+window.Computation = Computation;
