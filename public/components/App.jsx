@@ -26,8 +26,11 @@ class App extends React.Component {
       this.setState({ peers: _.uniq(this.state.peers.concat(peer)) });
     } else {
       var [action, parameter] = query.split(/[()]/);
+      var answer = this.functionLookup(action)(Number(parameter));
 
       this.setState({ computations: _.uniq(this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))} (for ${peer})`)) });
+
+      this.saveComputation({ description: request, content: answer });
     }
 
     this.removeRequest(request);
@@ -41,6 +44,21 @@ class App extends React.Component {
     this.setState({
       peers: _.without(this.state.peers, name),
       requests: _.reject(this.state.requests, (request) => request.split(/: /)[0] === name)
+    });
+  }
+
+  saveComputation(computation) {
+    var serverUrl = 'http://localhost:1337';
+
+    $.ajax({
+      url: `${serverUrl}/api/computation`,
+      header: {
+        'content-type': 'application/json'
+      },
+      data: computation,
+      type: 'POST',
+      success: (data) => console.log('Sucessfully wrote to database ', data),
+      error: (err) => console.error('Dude, you blew up the internet: ', err)
     });
   }
 

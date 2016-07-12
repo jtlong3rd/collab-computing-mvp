@@ -63,8 +63,11 @@ var App = function (_React$Component) {
         var action = _query$split2[0];
         var parameter = _query$split2[1];
 
+        var answer = this.functionLookup(action)(Number(parameter));
 
         this.setState({ computations: _.uniq(this.state.computations.concat(action + '(' + parameter + ') = ' + this.functionLookup(action)(Number(parameter)) + ' (for ' + peer + ')')) });
+
+        this.saveComputation({ description: request, content: answer });
       }
 
       this.removeRequest(request);
@@ -82,6 +85,26 @@ var App = function (_React$Component) {
         requests: _.reject(this.state.requests, function (request) {
           return request.split(/: /)[0] === name;
         })
+      });
+    }
+  }, {
+    key: 'saveComputation',
+    value: function saveComputation(computation) {
+      var serverUrl = 'http://localhost:1337';
+
+      $.ajax({
+        url: serverUrl + '/api/computation',
+        header: {
+          'content-type': 'application/json'
+        },
+        data: computation,
+        type: 'POST',
+        success: function success(data) {
+          return console.log('Sucessfully wrote to database ', data);
+        },
+        error: function error(err) {
+          return console.error('Dude, you blew up the internet: ', err);
+        }
       });
     }
   }, {
