@@ -34,7 +34,7 @@ var App = function (_React$Component) {
       this.setState({
         interval: setInterval(function () {
           return _this2.setState({ requests: _this2.state.requests.concat(obtainRequests(1, _this2.state.peers)) });
-        }, 5000)
+        }, 8000)
       });
     }
   }, {

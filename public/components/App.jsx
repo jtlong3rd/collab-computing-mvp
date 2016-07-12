@@ -11,7 +11,7 @@ class App extends React.Component {
 
   componentWillMount() {
     this.setState({
-      interval: setInterval(() => this.setState({ requests: this.state.requests.concat(obtainRequests(1, this.state.peers)) }), 5000)
+      interval: setInterval(() => this.setState({ requests: this.state.requests.concat(obtainRequests(1, this.state.peers)) }), 8000)
     });
   }
 
