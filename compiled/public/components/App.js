@@ -90,8 +90,8 @@ var App = function (_React$Component) {
   }, {
     key: 'saveComputation',
     value: function saveComputation(computation) {
+      var serverUrl = 'https://collab-comping-ftw.herokuapp.com';
       //var serverUrl = 'http://localhost:1337';
-      var serverUrl = 'https://collab-comping-ftw.herokuapp.com/';
 
       $.ajax({
         url: serverUrl + '/api/computation',
