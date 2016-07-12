@@ -15,13 +15,23 @@ exports.getComputation = function (req, res) {
 };
 
 exports.getPeer = function (req, res) {
-  // TODO: Implement me!
-  res.send(200, 'Route is working!');
+  Record.find({ type: 'peer' }, function (err, entry) {
+    if (err) {
+      res.send(404, err);
+    }
+
+    res.send(200, entry);
+  });
 };
 
 exports.getUserRequest = function (req, res) {
-  // TODO: Implement me!
-  res.send(200, 'Route is working!');
+  Record.find({ type: 'request' }, function (err, entry) {
+    if (err) {
+      res.send(404, err);
+    }
+
+    res.send(200, entry);
+  });
 };
 
 exports.postComputation = function (req, res) {
@@ -37,18 +47,32 @@ exports.postComputation = function (req, res) {
 };
 
 exports.postPeer = function (req, res) {
-  // TODO: Implement me!
-  res.send(200, 'Route is working!');
+  var newPeer = makeRecord(req, 'peer');
+
+  newPeer.save(function (err, entry) {
+    if (err) {
+      res.send(404, err);
+    }
+
+    res.send(200, entry);
+  });
 };
 
 exports.postUserRequest = function (req, res) {
-  // TODO: Implement me!
-  res.send(200, 'Route is working!');
+  var newRequest = makeRecord(req, 'request');
+
+  newRequest.save(function (err, entry) {
+    if (err) {
+      res.send(404, err);
+    }
+
+    res.send(200, entry);
+  });
 };
 
 var makeRecord = function makeRecord(req, type) {
   return new Record({
-    type: 'computation',
+    type: type,
     description: req.body.description,
     content: req.body.content
   });
