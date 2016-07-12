@@ -7,9 +7,7 @@ class App extends React.Component {
     return (
       <div>
         <div className='jumbotron'>
-          <div className='text-center'>
-            <h1>CollabCompingFTW</h1>
-          </div>
+          <h1 className='text-md-center'>CollabCompingFTW</h1>
         </div>
 
         <div className='jumbotron'>

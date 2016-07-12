@@ -27,13 +27,9 @@ var App = function (_React$Component) {
           'div',
           { className: 'jumbotron' },
           React.createElement(
-            'div',
-            { className: 'text-center' },
-            React.createElement(
-              'h1',
-              null,
-              'CollabCompingFTW'
-            )
+            'h1',
+            { className: 'text-md-center' },
+            'CollabCompingFTW'
           )
         ),
         React.createElement(
