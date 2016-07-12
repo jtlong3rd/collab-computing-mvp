@@ -43,13 +43,13 @@ class App extends React.Component {
         <div className='jumbotron'>
           <div className='row'>
             <div className='col-md-3'>
+              <RequestList requests={this.state.requests} addRequest={this.addRequest.bind(this)} removeRequest={this.removeRequest.bind(this)} />
+            </div>
+            <div className='col-md-offset-1 col-md-3'>
               <ComputationList computations={this.state.computations} />
             </div>
             <div className='col-md-offset-1 col-md-3'>
               <PeerList peers={this.state.peers} />
-            </div>
-            <div className='col-md-offset-1 col-md-3'>
-              <RequestList requests={this.state.requests} addRequest={this.addRequest.bind(this)} removeRequest={this.removeRequest.bind(this)} />
             </div>
           </div>
         </div>

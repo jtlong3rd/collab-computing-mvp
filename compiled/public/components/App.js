@@ -83,17 +83,17 @@ var App = function (_React$Component) {
             React.createElement(
               'div',
               { className: 'col-md-3' },
+              React.createElement(RequestList, { requests: this.state.requests, addRequest: this.addRequest.bind(this), removeRequest: this.removeRequest.bind(this) })
+            ),
+            React.createElement(
+              'div',
+              { className: 'col-md-offset-1 col-md-3' },
               React.createElement(ComputationList, { computations: this.state.computations })
             ),
             React.createElement(
               'div',
               { className: 'col-md-offset-1 col-md-3' },
               React.createElement(PeerList, { peers: this.state.peers })
-            ),
-            React.createElement(
-              'div',
-              { className: 'col-md-offset-1 col-md-3' },
-              React.createElement(RequestList, { requests: this.state.requests, addRequest: this.addRequest.bind(this), removeRequest: this.removeRequest.bind(this) })
             )
           )
         )
