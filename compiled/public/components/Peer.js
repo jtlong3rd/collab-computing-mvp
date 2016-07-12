@@ -37,7 +37,9 @@ var Peer = function (_React$Component) {
         ' ',
         React.createElement(
           'button',
-          { type: 'button', className: 'btn btn-warning btn-sm' },
+          { type: 'button', className: 'btn btn-warning btn-sm', onClick: function onClick() {
+              return _this2.props.removePeer(_this2.props.name);
+            } },
           'Part Ways'
         )
       );

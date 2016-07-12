@@ -75,6 +75,11 @@ var App = function (_React$Component) {
       this.setState({ requests: _.without(this.state.requests, request) });
     }
   }, {
+    key: 'removePeer',
+    value: function removePeer(name) {
+      this.setState({ peers: _.without(this.state.peers, name) });
+    }
+  }, {
     key: 'functionLookup',
     value: function functionLookup(name) {
       if (name === 'fib') {
@@ -117,7 +122,7 @@ var App = function (_React$Component) {
             React.createElement(
               'div',
               { className: 'col-md-offset-1 col-md-3' },
-              React.createElement(PeerList, { peers: this.state.peers })
+              React.createElement(PeerList, { peers: this.state.peers, removePeer: this.removePeer.bind(this) })
             )
           )
         )

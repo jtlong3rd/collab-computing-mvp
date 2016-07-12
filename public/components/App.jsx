@@ -23,18 +23,22 @@ class App extends React.Component {
     var [peer, query] = request.split(/: /);
 
     if (query === 'Buddies?') {
-      this.setState({peers : _.uniq(this.state.peers.concat(peer))});
+      this.setState({ peers : _.uniq(this.state.peers.concat(peer)) });
     } else {
       var [action, parameter] = query.split(/[()]/);
 
-      this.setState({computations : _.uniq(this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))} (for ${peer})`))});
+      this.setState({ computations : _.uniq(this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))} (for ${peer})`)) });
     }
 
     this.removeRequest(request);
   }
 
   removeRequest(request) {
-    this.setState({requests: _.without(this.state.requests, request)});
+    this.setState({ requests: _.without(this.state.requests, request) });
+  }
+
+  removePeer(name) {
+    this.setState({ peers : _.without(this.state.peers, name) });
   }
 
   functionLookup(name) {
@@ -61,7 +65,7 @@ class App extends React.Component {
               <ComputationList computations={this.state.computations} />
             </div>
             <div className='col-md-offset-1 col-md-3'>
-              <PeerList peers={this.state.peers} />
+              <PeerList peers={this.state.peers} removePeer={this.removePeer.bind(this)} />
             </div>
           </div>
         </div>

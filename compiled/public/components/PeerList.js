@@ -20,6 +20,8 @@ var PeerList = function (_React$Component) {
   _createClass(PeerList, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return React.createElement(
         "div",
         null,
@@ -29,7 +31,7 @@ var PeerList = function (_React$Component) {
           "Peer List"
         ),
         this.props.peers.map(function (peer, index) {
-          return React.createElement(Peer, { name: peer, key: index });
+          return React.createElement(Peer, { name: peer, key: index, removePeer: _this2.props.removePeer });
         })
       );
     }
