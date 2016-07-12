@@ -25,26 +25,22 @@ var Request = function (_React$Component) {
       return React.createElement(
         'div',
         { className: 'roomyDiv' },
+        this.props.name,
+        ' ',
         React.createElement(
-          'div',
-          null,
-          this.props.name,
-          ' ',
-          React.createElement(
-            'button',
-            { type: 'button', className: 'btn btn-success btn-sm', onClick: function onClick() {
-                return _this2.props.addRequest(_this2.props.name);
-              } },
-            'Accept'
-          ),
-          ' ',
-          React.createElement(
-            'button',
-            { type: 'button', className: 'btn btn-danger btn-sm', onClick: function onClick() {
-                return _this2.props.removeRequest(_this2.props.name);
-              } },
-            'Decline'
-          )
+          'button',
+          { type: 'button', className: 'btn btn-success btn-sm', onClick: function onClick() {
+              return _this2.props.addRequest(_this2.props.name);
+            } },
+          'Accept'
+        ),
+        ' ',
+        React.createElement(
+          'button',
+          { type: 'button', className: 'btn btn-danger btn-sm', onClick: function onClick() {
+              return _this2.props.removeRequest(_this2.props.name);
+            } },
+          'Decline'
         )
       );
     }
