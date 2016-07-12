@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -18,12 +18,24 @@ var Request = function (_React$Component) {
   }
 
   _createClass(Request, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "li",
+        'li',
         null,
-        this.props.name
+        this.props.name,
+        ' ',
+        React.createElement(
+          'button',
+          { type: 'button', className: 'btn btn-success' },
+          'Accept'
+        ),
+        ' ',
+        React.createElement(
+          'button',
+          { type: 'button', className: 'btn btn-danger' },
+          'Decline'
+        )
       );
     }
   }]);

@@ -28,15 +28,11 @@ var App = function (_React$Component) {
           { className: 'jumbotron' },
           React.createElement(
             'div',
-            { className: 'row' },
+            { className: 'text-center' },
             React.createElement(
-              'div',
-              { className: 'col-md-offset-1 col-md-6' },
-              React.createElement(
-                'h1',
-                null,
-                'CollabCompingFTW'
-              )
+              'h1',
+              null,
+              'CollabCompingFTW'
             )
           )
         ),
@@ -48,7 +44,7 @@ var App = function (_React$Component) {
             { className: 'row' },
             React.createElement(
               'div',
-              { className: 'col-md-offset-1 col-md-3' },
+              { className: 'col-md-3' },
               React.createElement(ComputationList, null)
             ),
             React.createElement(
