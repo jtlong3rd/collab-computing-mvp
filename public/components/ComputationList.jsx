@@ -6,10 +6,8 @@ class ComputationList extends React.Component {
   render() {
     return (
       <div>
-        <h3>Computation List</h3>
-        <ul>
-          {this.props.computations.map((comp, index) => <Peer name={comp} key={index} />)}
-        </ul>
+        <h3>Computations I've Helped Pwn</h3>
+        {this.props.computations.map((comp, index) => <Computation name={comp} key={index} />)}
       </div>
     );
   }

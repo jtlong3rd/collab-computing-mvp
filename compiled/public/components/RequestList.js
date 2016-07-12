@@ -28,13 +28,9 @@ var RequestList = function (_React$Component) {
           null,
           "Request List"
         ),
-        React.createElement(
-          "ul",
-          null,
-          this.props.requests.map(function (request, index) {
-            return React.createElement(Request, { name: request, key: index });
-          })
-        )
+        this.props.requests.map(function (request, index) {
+          return React.createElement(Request, { name: request, key: index });
+        })
       );
     }
   }]);

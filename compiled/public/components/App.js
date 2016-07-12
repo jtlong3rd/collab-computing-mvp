@@ -19,7 +19,7 @@ var App = function (_React$Component) {
     _this.state = {
       computations: ['Solve ALL THE N-QUEENS', 'Annoy fun-fun-function'],
       peers: ['Chell', 'Wheatley'],
-      requests: ['I can haz n-queens for n=100?', 'fib(232) plz?']
+      requests: ['I can haz n-queens?', 'fib(232) plz?']
     };
     return _this;
   }

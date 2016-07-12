@@ -5,7 +5,9 @@ class Peer extends React.Component {
 
   render() {
     return (
-      <li>{this.props.name}</li>
+      <div>
+        {this.props.name} <button type='button' className='btn btn-primary btn-sm'>Ask For Help</button>
+      </div>
     );
   }
 }

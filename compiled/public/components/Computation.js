@@ -21,7 +21,7 @@ var Computation = function (_React$Component) {
     key: "render",
     value: function render() {
       return React.createElement(
-        "li",
+        "div",
         null,
         this.props.name
       );

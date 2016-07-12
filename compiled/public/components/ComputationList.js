@@ -26,15 +26,11 @@ var ComputationList = function (_React$Component) {
         React.createElement(
           "h3",
           null,
-          "Computation List"
+          "Computations I've Helped Pwn"
         ),
-        React.createElement(
-          "ul",
-          null,
-          this.props.computations.map(function (comp, index) {
-            return React.createElement(Peer, { name: comp, key: index });
-          })
-        )
+        this.props.computations.map(function (comp, index) {
+          return React.createElement(Computation, { name: comp, key: index });
+        })
       );
     }
   }]);

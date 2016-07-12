@@ -28,13 +28,9 @@ var PeerList = function (_React$Component) {
           null,
           "Peer List"
         ),
-        React.createElement(
-          "ul",
-          null,
-          this.props.peers.map(function (peer, index) {
-            return React.createElement(Peer, { name: peer, key: index });
-          })
-        )
+        this.props.peers.map(function (peer, index) {
+          return React.createElement(Peer, { name: peer, key: index });
+        })
       );
     }
   }]);

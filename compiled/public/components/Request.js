@@ -21,19 +21,19 @@ var Request = function (_React$Component) {
     key: 'render',
     value: function render() {
       return React.createElement(
-        'li',
+        'div',
         null,
         this.props.name,
         ' ',
         React.createElement(
           'button',
-          { type: 'button', className: 'btn btn-success' },
+          { type: 'button', className: 'btn btn-success btn-sm' },
           'Accept'
         ),
         ' ',
         React.createElement(
           'button',
-          { type: 'button', className: 'btn btn-danger' },
+          { type: 'button', className: 'btn btn-danger btn-sm' },
           'Decline'
         )
       );
