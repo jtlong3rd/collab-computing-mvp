@@ -5,7 +5,7 @@ class Computation extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='roomyDiv'>
         {this.props.name}
       </div>
     );
