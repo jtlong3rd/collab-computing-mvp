@@ -10,7 +10,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({requests: obtainRequests()});
+    this.setState({requests: obtainRequests(5)});
   }
 
   addRequest(request) {
@@ -82,14 +82,14 @@ var nRooks = function(n, prev=1) {
   return nRooks(n - 1 , n * prev);
 };
 
-var obtainRequests = function() {
+var obtainRequests = function(n) {
   var names = ['Chell', 'Wheatley', 'Freeman'];
   var functions = ['fib', 'nRooks'];
   var parameters = _.range(5, 11);
 
   var requests = [];
 
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < n; i++) {
     if (Math.random() < .5) {
       var randomName = names[ Math.floor(Math.random() * names.length) ];
 

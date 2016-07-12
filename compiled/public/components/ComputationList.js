@@ -26,7 +26,7 @@ var ComputationList = function (_React$Component) {
         React.createElement(
           "h3",
           null,
-          "Computations I've Helped Pwn"
+          "Computations You've Helped Pwn"
         ),
         this.props.computations.map(function (comp, index) {
           return React.createElement(Computation, { name: comp, key: index });

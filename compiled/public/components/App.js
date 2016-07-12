@@ -29,7 +29,7 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      this.setState({ requests: obtainRequests() });
+      this.setState({ requests: obtainRequests(5) });
     }
   }, {
     key: 'addRequest',
@@ -134,14 +134,14 @@ var nRooks = function nRooks(n) {
   return nRooks(n - 1, n * prev);
 };
 
-var obtainRequests = function obtainRequests() {
+var obtainRequests = function obtainRequests(n) {
   var names = ['Chell', 'Wheatley', 'Freeman'];
   var functions = ['fib', 'nRooks'];
   var parameters = _.range(5, 11);
 
   var requests = [];
 
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < n; i++) {
     if (Math.random() < .5) {
       var randomName = names[Math.floor(Math.random() * names.length)];
 

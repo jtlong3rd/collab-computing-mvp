@@ -20,6 +20,8 @@ var Peer = function (_React$Component) {
   _createClass(Peer, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return React.createElement(
         'div',
         { className: 'roomyDiv' },
@@ -28,7 +30,7 @@ var Peer = function (_React$Component) {
         React.createElement(
           'button',
           { type: 'button', className: 'btn btn-primary btn-sm', onClick: function onClick() {
-              return alert('You\'re on your own, bro!');
+              return alert(_this2.props.name + ' says: \'You\'re on your own, bro!\'');
             } },
           'Ask For Help'
         )
