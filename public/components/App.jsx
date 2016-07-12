@@ -5,8 +5,12 @@ class App extends React.Component {
     this.state = {
       computations: [],
       peers: [],
-      requests: ['Befriend Chell', 'Befriend Wheatley', 'fib(6)', 'nRooks(5)'],
+      requests: [],
     };
+  }
+
+  componentWillMount() {
+    this.setState({requests: obtainRequests()});
   }
 
   addRequest(request) {
@@ -76,6 +80,29 @@ var nRooks = function(n, prev=1) {
   }
 
   return nRooks(n - 1 , n * prev);
+};
+
+var obtainRequests = function() {
+  var names = ['Chell', 'Wheatley', 'Freeman'];
+  var functions = ['fib', 'nRooks'];
+  var parameters = _.range(5, 11);
+
+  var requests = [];
+
+  for (var i = 0; i < 5; i++) {
+    if (Math.random() < .5) {
+      var randomName = names[ Math.floor(Math.random() * names.length) ];
+
+      requests.push(`Befriend ${randomName}`);
+    } else {
+      var randomFunction = functions[ Math.floor(Math.random() * functions.length) ];
+      var randomParameter = parameters[ Math.floor(Math.random() * parameters.length) ];
+
+      requests.push(`${randomFunction}(${randomParameter})`);
+    }
+  }
+
+  return requests;
 };
 
 window.App = App;

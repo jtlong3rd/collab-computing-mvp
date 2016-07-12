@@ -21,12 +21,17 @@ var App = function (_React$Component) {
     _this.state = {
       computations: [],
       peers: [],
-      requests: ['Befriend Chell', 'Befriend Wheatley', 'fib(6)', 'nRooks(5)']
+      requests: []
     };
     return _this;
   }
 
   _createClass(App, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.setState({ requests: obtainRequests() });
+    }
+  }, {
     key: 'addRequest',
     value: function addRequest(request) {
       var _request$split = request.split(/[ ()]/);
@@ -127,6 +132,29 @@ var nRooks = function nRooks(n) {
   }
 
   return nRooks(n - 1, n * prev);
+};
+
+var obtainRequests = function obtainRequests() {
+  var names = ['Chell', 'Wheatley', 'Freeman'];
+  var functions = ['fib', 'nRooks'];
+  var parameters = _.range(5, 11);
+
+  var requests = [];
+
+  for (var i = 0; i < 5; i++) {
+    if (Math.random() < .5) {
+      var randomName = names[Math.floor(Math.random() * names.length)];
+
+      requests.push('Befriend ' + randomName);
+    } else {
+      var randomFunction = functions[Math.floor(Math.random() * functions.length)];
+      var randomParameter = parameters[Math.floor(Math.random() * parameters.length)];
+
+      requests.push(randomFunction + '(' + randomParameter + ')');
+    }
+  }
+
+  return requests;
 };
 
 window.App = App;
