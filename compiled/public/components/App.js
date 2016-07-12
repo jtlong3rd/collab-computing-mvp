@@ -35,6 +35,11 @@ var App = function (_React$Component) {
       this.setState({ computations: this.state.computations.concat(description + ' ' + number) });
     }
   }, {
+    key: 'removeRequest',
+    value: function removeRequest(request) {
+      this.setState({ requests: _.without(this.state.requests, request) });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(

@@ -17,6 +17,10 @@ class App extends React.Component {
     this.setState({computations : this.state.computations.concat(`${description} ${number}`)});
   }
 
+  removeRequest(request) {
+    this.setState({requests: _.without(this.state.requests, request)});
+  }
+
   render() {
     return (
       <div>
