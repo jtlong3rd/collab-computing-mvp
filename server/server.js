@@ -19,6 +19,6 @@ app.post('/api/computation', handler.postComputation);
 app.post('/api/peer', handler.postPeer);
 app.post('/api/userRequest', handler.postUserRequest);
 
-app.get('/dev/clear', handler.clearRecords);
+app.delete('/dev/clear', handler.clearRecords);
 
 module.exports = app;
