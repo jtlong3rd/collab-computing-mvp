@@ -1,4 +1,4 @@
-var handler = require('../lib/requestHandler');
+var handler = require('../router/requestHandler');
 
 var express = require('express');
 var partials = require('express-partials');
