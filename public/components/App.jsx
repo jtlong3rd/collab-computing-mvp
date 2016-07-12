@@ -5,16 +5,18 @@ class App extends React.Component {
     this.state = {
       computations: ['Solve ALL THE N-QUEENS', 'Annoy fun-fun-function'],
       peers: ['Chell', 'Wheatley'],
-      requests: ['I can haz n-queens?', 'fib(232) plz?']
+      requests: ['Befriend Lindsey', 'fib 232']
     };
   }
 
-  addPeer(name) {
-    this.setState({requests: this.state.requests.concat(name)});
-  }
+  acceptRequest(requestText) {
+    [action, parameter] = requestText.split(' ');
 
-  addComputation(descrption, number) {
-    this.setState({computations : this.state.computations.concat(`${description} ${number}`)});
+    if (action === 'Befriend') {
+      this.setState({peers : _.uniq(this.state.peers.concat(parameter))});
+    } else {
+      this.setState({computations : this.state.computations.concat(`${action} ${parameter}`)});
+    }
   }
 
   removeRequest(request) {
