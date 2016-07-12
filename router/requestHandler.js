@@ -68,6 +68,16 @@ exports.postUserRequest = function(req, res) {
   });
 };
 
+exports.clearRecords = function(req, res) {
+  Record.remove({}, function(err, results) {
+    if (err) {
+      res.send(404);
+    } else {
+      res.send(200);
+    }
+  });
+};
+
 var makeRecord = function(req, type) {
   return new Record({
     type: type,
