@@ -6,7 +6,7 @@ class Request extends React.Component {
   render() {
     return (
       <div>
-      {this.props.name} <button type='button' className='btn btn-success btn-sm'>Accept</button> <button type='button' className='btn btn-danger btn-sm'>Decline</button>
+      {this.props.name} <button type='button' className='btn btn-success btn-sm'>Accept</button> <button type='button' className='btn btn-danger btn-sm' onClick={() => this.props.removeRequest(this.props.name)}>Decline</button>
       </div>
     );
   }

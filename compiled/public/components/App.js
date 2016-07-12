@@ -73,7 +73,7 @@ var App = function (_React$Component) {
             React.createElement(
               'div',
               { className: 'col-md-offset-1 col-md-3' },
-              React.createElement(RequestList, { requests: this.state.requests })
+              React.createElement(RequestList, { requests: this.state.requests, removeRequest: this.removeRequest.bind(this) })
             )
           )
         )

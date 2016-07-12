@@ -20,6 +20,8 @@ var Request = function (_React$Component) {
   _createClass(Request, [{
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return React.createElement(
         'div',
         null,
@@ -33,7 +35,9 @@ var Request = function (_React$Component) {
         ' ',
         React.createElement(
           'button',
-          { type: 'button', className: 'btn btn-danger btn-sm' },
+          { type: 'button', className: 'btn btn-danger btn-sm', onClick: function onClick() {
+              return _this2.props.removeRequest(_this2.props.name);
+            } },
           'Decline'
         )
       );

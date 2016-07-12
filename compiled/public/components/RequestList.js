@@ -20,6 +20,8 @@ var RequestList = function (_React$Component) {
   _createClass(RequestList, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return React.createElement(
         "div",
         null,
@@ -29,7 +31,7 @@ var RequestList = function (_React$Component) {
           "Request List"
         ),
         this.props.requests.map(function (request, index) {
-          return React.createElement(Request, { name: request, key: index });
+          return React.createElement(Request, { name: request, key: index, removeRequest: _this2.props.removeRequest });
         })
       );
     }

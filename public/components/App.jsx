@@ -37,7 +37,7 @@ class App extends React.Component {
               <PeerList peers={this.state.peers} />
             </div>
             <div className='col-md-offset-1 col-md-3'>
-              <RequestList requests={this.state.requests} />
+              <RequestList requests={this.state.requests} removeRequest={this.removeRequest.bind(this)} />
             </div>
           </div>
         </div>
