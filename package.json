@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "main": "index.js",
   "description": "mvp project",
+  "repository": "https://github.com/jtlong3rd/collab-computing-mvp",
+  "license": "MIT",
   "scripts": {
     "start": "node index.js",
     "test": "babel . --watch --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled"
