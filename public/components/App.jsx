@@ -27,7 +27,7 @@ class App extends React.Component {
     } else {
       var [action, parameter] = query.split(/[()]/);
 
-      this.setState({computations : this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))} (for ${peer})`)});
+      this.setState({computations : _.uniq(this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))} (for ${peer})`))});
     }
 
     this.removeRequest(request);
@@ -70,7 +70,7 @@ class App extends React.Component {
   }
 }
 
-var fib = function(n, secLast=1, last=1) {
+var fib = function(n, secLast = 1, last = 1) {
   if (n === 1) {
     return secLast;
   }
@@ -82,7 +82,7 @@ var fib = function(n, secLast=1, last=1) {
   return fib(n - 1, last, secLast + last);
 };
 
-var nRooks = function(n, prev=1) {
+var nRooks = function(n, prev = 1) {
   if (n === 0) {
     return prev;
   }

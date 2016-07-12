@@ -64,7 +64,7 @@ var App = function (_React$Component) {
         var parameter = _query$split2[1];
 
 
-        this.setState({ computations: this.state.computations.concat(action + '(' + parameter + ') = ' + this.functionLookup(action)(Number(parameter)) + ' (for ' + peer + ')') });
+        this.setState({ computations: _.uniq(this.state.computations.concat(action + '(' + parameter + ') = ' + this.functionLookup(action)(Number(parameter)) + ' (for ' + peer + ')')) });
       }
 
       this.removeRequest(request);
