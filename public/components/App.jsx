@@ -4,13 +4,13 @@ class App extends React.Component {
 
     this.state = {
       computations: [],
-      peers: [],
-      requests: [],
+      peers: ['Alex', 'G-Man'],
+      requests: ['Befriend Chell', 'Befriend Wheatley', 'Befriend Freeman'],
     };
   }
 
   componentWillMount() {
-    this.setState({requests: obtainRequests(5)});
+    this.setState({requests: this.state.requests.concat(obtainRequests(5, this.state.peers))});
   }
 
   addRequest(request) {
@@ -19,7 +19,9 @@ class App extends React.Component {
     if (action === 'Befriend') {
       this.setState({peers : _.uniq(this.state.peers.concat(parameter))});
     } else {
-      this.setState({computations : this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))}`)});
+      var peer = request.split(/from /)[1].slice(0, -1);
+
+      this.setState({computations : this.state.computations.concat(`${action}(${parameter}) = ${this.functionLookup(action)(Number(parameter))} (for ${peer})`)});
     }
 
     this.removeRequest(request);
@@ -82,27 +84,16 @@ var nRooks = function(n, prev=1) {
   return nRooks(n - 1 , n * prev);
 };
 
-var obtainRequests = function(n) {
-  var names = ['Chell', 'Wheatley', 'Freeman'];
+var obtainRequests = function(n, peers) {
   var functions = ['fib', 'nRooks'];
-  var parameters = _.range(5, 11);
+  var parameters = _.range(5, 10);
 
-  var requests = [];
-
-  for (var i = 0; i < n; i++) {
-    if (Math.random() < .5) {
-      var randomName = names[ Math.floor(Math.random() * names.length) ];
-
-      requests.push(`Befriend ${randomName}`);
-    } else {
-      var randomFunction = functions[ Math.floor(Math.random() * functions.length) ];
-      var randomParameter = parameters[ Math.floor(Math.random() * parameters.length) ];
-
-      requests.push(`${randomFunction}(${randomParameter})`);
-    }
-  }
-
-  return requests;
+  return _.range(n).reduce((requests, next) => {
+    var randomFunction = functions[ Math.floor(Math.random() * functions.length) ];
+    var randomParameter = parameters[ Math.floor(Math.random() * parameters.length) ];
+    var randomPeer = peers[ Math.floor(Math.random() * peers.length) ];
+    return requests.concat(`${randomFunction}(${randomParameter}) (from ${randomPeer})`);
+  }, []);
 };
 
 window.App = App;
