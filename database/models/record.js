@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var recordSchema = mongoose.Schema({
   style: { type: String, required: true, index: { unique : true } },
+  description: String,
   content: String,
 }, { timestamps:
   {
