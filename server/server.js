@@ -1,4 +1,4 @@
-var handler = require('./lib/requestHandler');
+var handler = require('../lib/requestHandler');
 
 var express = require('express');
 var partials = require('express-partials');
@@ -8,7 +8,7 @@ var app = express();
 app.configure(function() {
   app.use(partials());
   app.use(express.bodyParser());
-  app.use(express.static(__dirname));
+  app.use(express.static(__dirname + '/../'));
 });
 
 app.get('/api/computation', handler.getComputation);
