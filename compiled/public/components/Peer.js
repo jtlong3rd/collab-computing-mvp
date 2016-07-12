@@ -33,6 +33,12 @@ var Peer = function (_React$Component) {
               return alert(_this2.props.name + ' says: \'You\'re on your own, bro!\'');
             } },
           'Ask For Help'
+        ),
+        ' ',
+        React.createElement(
+          'button',
+          { type: 'button', className: 'btn btn-warning btn-sm' },
+          'Part Ways'
         )
       );
     }
