@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -18,20 +18,22 @@ var RequestList = function (_React$Component) {
   }
 
   _createClass(RequestList, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return React.createElement(
-        'div',
+        "div",
         null,
         React.createElement(
-          'h3',
+          "h3",
           null,
-          'Request List'
+          "Request List"
         ),
         React.createElement(
-          'ul',
+          "ul",
           null,
-          React.createElement(Request, { name: 'I can haz n-queens for n=100?' })
+          this.props.requests.map(function (request, index) {
+            return React.createElement(Request, { name: request, key: index });
+          })
         )
       );
     }

@@ -8,7 +8,7 @@ class PeerList extends React.Component {
       <div>
         <h3>Peer List</h3>
         <ul>
-          <Peer name='Lindsey' />
+          {this.props.peers.map((peer, index) => <Peer name={peer} key={index} />)}
         </ul>
       </div>
     );

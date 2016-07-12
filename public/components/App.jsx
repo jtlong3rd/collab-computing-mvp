@@ -1,6 +1,12 @@
 class App extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      computations: ['Solve ALL THE N-QUEENS', 'Annoy fun-fun-function'],
+      peers: ['Chell', 'Wheatley'],
+      requests: ['I can haz n-queens for n=100?', 'fib(232) plz?']
+    };
   }
 
   render() {
@@ -13,13 +19,13 @@ class App extends React.Component {
         <div className='jumbotron'>
           <div className='row'>
             <div className='col-md-3'>
-              <ComputationList />
+              <ComputationList computations={this.state.computations} />
             </div>
             <div className='col-md-offset-1 col-md-3'>
-              <PeerList />
+              <PeerList peers={this.state.peers} />
             </div>
             <div className='col-md-offset-1 col-md-3'>
-              <RequestList />
+              <RequestList requests={this.state.requests} />
             </div>
           </div>
         </div>

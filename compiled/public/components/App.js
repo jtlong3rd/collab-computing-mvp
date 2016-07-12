@@ -14,7 +14,14 @@ var App = function (_React$Component) {
   function App() {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
+
+    _this.state = {
+      computations: ['Solve ALL THE N-QUEENS', 'Annoy fun-fun-function'],
+      peers: ['Chell', 'Wheatley'],
+      requests: ['I can haz n-queens for n=100?', 'fib(232) plz?']
+    };
+    return _this;
   }
 
   _createClass(App, [{
@@ -41,17 +48,17 @@ var App = function (_React$Component) {
             React.createElement(
               'div',
               { className: 'col-md-3' },
-              React.createElement(ComputationList, null)
+              React.createElement(ComputationList, { computations: this.state.computations })
             ),
             React.createElement(
               'div',
               { className: 'col-md-offset-1 col-md-3' },
-              React.createElement(PeerList, null)
+              React.createElement(PeerList, { peers: this.state.peers })
             ),
             React.createElement(
               'div',
               { className: 'col-md-offset-1 col-md-3' },
-              React.createElement(RequestList, null)
+              React.createElement(RequestList, { requests: this.state.requests })
             )
           )
         )

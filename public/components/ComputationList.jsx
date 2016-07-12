@@ -8,7 +8,7 @@ class ComputationList extends React.Component {
       <div>
         <h3>Computation List</h3>
         <ul>
-          <Computation name='Solve ALL THE N-QUEENS' />
+          {this.props.computations.map((comp, index) => <Peer name={comp} key={index} />)}
         </ul>
       </div>
     );

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -18,20 +18,22 @@ var ComputationList = function (_React$Component) {
   }
 
   _createClass(ComputationList, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return React.createElement(
-        'div',
+        "div",
         null,
         React.createElement(
-          'h3',
+          "h3",
           null,
-          'Computation List'
+          "Computation List"
         ),
         React.createElement(
-          'ul',
+          "ul",
           null,
-          React.createElement(Computation, { name: 'Solve ALL THE N-QUEENS' })
+          this.props.computations.map(function (comp, index) {
+            return React.createElement(Peer, { name: comp, key: index });
+          })
         )
       );
     }

@@ -8,7 +8,7 @@ class RequestList extends React.Component {
       <div>
         <h3>Request List</h3>
         <ul>
-          <Request name='I can haz n-queens for n=100?' />
+          {this.props.requests.map((request, index) => <Request name={request} key={index} />)}
         </ul>
       </div>
     );
