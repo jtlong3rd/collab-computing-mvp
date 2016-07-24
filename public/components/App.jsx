@@ -48,11 +48,8 @@ class App extends React.Component {
   }
 
   saveComputation(computation) {
-    var serverUrl = 'https://collab-comping-ftw.herokuapp.com';
-    //var serverUrl = 'http://localhost:1337';
-
     $.ajax({
-      url: `${serverUrl}/api/computation`,
+      url: '/api/computation',
       header: {
         'content-type': 'application/json'
       },
